@@ -1,5 +1,6 @@
 ---
 import Social from './Social.astro'
+import { socialLinks } from './data.js'
 ---
 
 <style>
@@ -11,7 +12,11 @@ import Social from './Social.astro'
 </style>
 
 <footer>
-  <Social platform='twitter' username='astrodotbuild' />
-  <Social platform='github' username='withastro' />
-  <Social platform='youtube' username='astrodotbuild' />
+  <ul>
+    {
+      socialLinks.map((link) => {
+        return <Social key={link.id} {...link} />
+      })
+    }
+  </ul>
 </footer>
